@@ -17,10 +17,6 @@ AddEventHandler('getliveries',function()
 		}
     end
 	
-	options[#options + 1] = {
-		title = '❌ Close (ESC)',
-	}
-	
     lib.registerContext({
         id = 'liveries_menu',
         title = 'Vehicle Liveries',
