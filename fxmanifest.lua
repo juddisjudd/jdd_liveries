@@ -11,10 +11,12 @@ version      '1.0.0'
 repository   'https://github.com/juddisjudd/jdd_liveries'
 description  'Simple Liveries Menu using ox_lib'
 
-client_scripts {
-    'client.lua',
-}
+dependency 'ox_lib'
 
 shared_scripts {
-	'@ox_lib/init.lua',
+    '@ox_lib/init.lua',
+}
+
+client_scripts {
+    'client.lua',
 }
