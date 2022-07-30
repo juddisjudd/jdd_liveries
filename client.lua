@@ -1,9 +1,7 @@
-RegisterCommand('liveries',function()
-	if IsPedInAnyVehicle(PlayerPedId(), 0) then
-    	TriggerEvent('getliveries')
-	else 
+local function viewLiveries()
+	if cache.vehicle then return TriggerEvent('getliveries')
+else
 		lib.notify({
-			id = 'some_identifier',
 			title = 'Liveries',
 			description = 'You are not in a vehicle.',
 			position = 'top',
@@ -15,13 +13,15 @@ RegisterCommand('liveries',function()
 			iconColor = '#C53030'
 		})
 	end
-end)
+end
+
+RegisterCommand('liveries', viewLiveries)
 
 AddEventHandler('getliveries',function()
 	local vehicle = GetVehiclePedIsIn(PlayerPedId())
 	local numMods = GetNumVehicleMods(cache.vehicle, 48)
 	local numLiveries = GetVehicleLiveryCount(cache.vehicle)
-	
+
 	SetVehicleModKit(cache.vehicle, 0)
 
 	local options = {}
@@ -39,7 +39,7 @@ AddEventHandler('getliveries',function()
 			}
 		end
 	end
-	
+
 	if numLiveries > 0 then
 		for i = 0, numLiveries -1 do
 			local modLabel = GetLiveryName(cache.vehicle, i)
@@ -54,7 +54,7 @@ AddEventHandler('getliveries',function()
 			}
 		end
 	end
-	
+
     lib.registerContext({
         id = 'liveries_menu',
         title = 'Vehicle Liveries',
@@ -63,8 +63,8 @@ AddEventHandler('getliveries',function()
     lib.showContext('liveries_menu')
 end)
 
-AddEventHandler('togglelivery',function(data)
-    SetVehicleLivery(data.vehicle,data.livery)
-	SetVehicleMod(data.vehicle,48,data.livery)
-    TriggerEvent('getliveries')
+AddEventHandler('togglelivery', function(data)
+	SetVehicleLivery(data.vehicle, data.livery)
+	SetVehicleMod(data.vehicle, 48, data.livery)
+	TriggerEvent('getliveries')
 end)
