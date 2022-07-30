@@ -7,10 +7,9 @@ local function viewLiveries()
 		lib.notify({
 			title = 'Liveries',
 			description = 'You are not in a vehicle.',
+			type = 'error',
 			position = 'top',
-			style = { backgroundColor = '#141517', color = '#909296' },
-			icon = 'ban',
-			iconColor = '#C53030'
+			icon = 'ban'
 		})
 	end
 end
@@ -53,10 +52,9 @@ AddEventHandler('getLiveries', function()
 		return lib.notify({
 			title = 'Liveries',
 			description = 'No liveries have been found for this vehicle.',
+			type = 'error',
 			position = 'top',
-			style = { backgroundColor = '#141517', color = '#909296' },
-			icon = 'ban',
-			iconColor = '#C53030'
+			icon = 'ban'
 		})
 	end
 
