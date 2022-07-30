@@ -1,11 +1,11 @@
 lib.locale()
 
 local function viewLiveries()
-	if cache.vehicle then 
-		return TriggerEvent('getLiveries')
-	else
-		lib.notify({ title = locale('liveries'), description = locale('not_in_vehicle'), type = 'error', position = 'top', icon = 'ban' })
+	if not cache.vehicle then
+		return lib.notify({ title = locale('liveries'), description = locale('not_in_vehicle'), type = 'error', position = 'top', icon = 'ban' })
 	end
+
+	TriggerEvent('getLiveries')
 end
 
 RegisterCommand('liveries', viewLiveries)
@@ -21,6 +21,10 @@ end
 
 AddEventHandler('getLiveries', function()
 	local vehicle = cache.vehicle
+	if not vehicle then
+		return
+	end
+
 	local numMods = GetNumVehicleMods(vehicle, 48)
 	local numLiveries = GetVehicleLiveryCount(vehicle)
 
