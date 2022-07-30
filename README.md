@@ -1,5 +1,6 @@
 # jdd_liveries
 FiveM liveries menu utilizing ox_lib
 
-# credit
-[noms](https://github.com/OfficialNoms) for the original snippet
+# thanks
+[noms](https://github.com/OfficialNoms) for the original idea
+[Linden](https://github.com/thelindat) assistance with some logic
