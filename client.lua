@@ -1,16 +1,10 @@
-
+lib.locale()
 
 local function viewLiveries()
 	if cache.vehicle then 
 		return TriggerEvent('getLiveries')
 	else
-		lib.notify({
-			title = 'Liveries',
-			description = 'You are not in a vehicle.',
-			type = 'error',
-			position = 'top',
-			icon = 'ban'
-		})
+		lib.notify({ title = locale('liveries'), description = locale('not_in_vehicle'), type = 'error', position = 'top', icon = 'ban' })
 	end
 end
 
@@ -18,7 +12,7 @@ RegisterCommand('liveries', viewLiveries)
 
 local function formatOption(label, vehicle, i)
 	return {
-		title = ('Toggle Livery: %s'):format(i + 1),
+		title = locale('toggle_livery', i + 1),
 		description = label,
 		event = 'toggleLivery',
 		args = { vehicle = vehicle, livery = i }
@@ -49,16 +43,10 @@ AddEventHandler('getLiveries', function()
 	end
 
 	if count == 0 then
-		return lib.notify({
-			title = 'Liveries',
-			description = 'No liveries have been found for this vehicle.',
-			type = 'error',
-			position = 'top',
-			icon = 'ban'
-		})
+		return lib.notify({ title = locale('liveries'), description = locale('no_liveries_found'), type = 'error', position = 'top', icon = 'ban' })
 	end
 
-	lib.registerContext({ id = 'liveries_menu', title = 'Vehicle Liveries', options = options })
+	lib.registerContext({ id = 'liveries_menu', title = locale('vehicle_liveries'), options = options })
 	lib.showContext('liveries_menu')
 end)
 

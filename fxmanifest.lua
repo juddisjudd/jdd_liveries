@@ -14,9 +14,13 @@ description  'Simple Liveries Menu using ox_lib'
 dependency 'ox_lib'
 
 shared_scripts {
-    '@ox_lib/init.lua',
+    '@ox_lib/init.lua'
 }
 
 client_scripts {
-    'client.lua',
+    'client.lua'
+}
+
+files {
+	'locales/*.json'
 }
