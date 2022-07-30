@@ -1,0 +1,7 @@
+{
+	"liveries": "Liveries",
+    "vehicle_liveries": "Voertuig Liveries",
+	"toggle_livery": "Verander Livery: %s",
+	"no_liveries_found": "Er zijn geen liveries gevonden voor dit voertuig.",
+	"not_in_vehicle": "Je zit niet in een voertuig."
+}
