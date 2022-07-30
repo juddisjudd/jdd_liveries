@@ -18,7 +18,7 @@ end
 RegisterCommand('liveries', viewLiveries)
 
 AddEventHandler('getliveries',function()
-	local vehicle = GetVehiclePedIsIn(PlayerPedId())
+	local vehicle = GetVehiclePedIsIn(cache.ped)
 	local numMods = GetNumVehicleMods(cache.vehicle, 48)
 	local numLiveries = GetVehicleLiveryCount(cache.vehicle)
 
