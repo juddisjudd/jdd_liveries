@@ -1,6 +1,8 @@
 # jdd_liveries
 Simple Livery Menu.
 
+![menu](https://i.imgur.com/BbwurC0.png)
+
 [PREVIEW](https://streamable.com/tupib9)
 
 ## REQUIREMENTS:
